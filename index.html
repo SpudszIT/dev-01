@@ -3,67 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Site</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Weezy Reviews</title>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-    <div class="navbar">
-    <div class="logo"><a href="">Weezy Reviews</a></div>
-    <ul class="links">
-        <li><a href="home">Home</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="services">Services</a></li>
-        <li><a href="contact">Contact</a></li>
 
-    </ul>
-    <a href="#" class="actn_btn">Get Started</a>
-    <div class="toggle_btn">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-        </div>
-            </header>
-            <div class="home-body">
-                    <a href="game">
-                    <img class="game-reviews" src="img/MafiaGamePoster.jpg" alt="MafiaGamePoster">
-                    </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                        <img class="movie-reviews" src="img/SinnerMoviePoster.jpg" alt="SinnerMoviePoster">
-                    </a>
-                    <a href="book">
-                        <img class="book-reviews" src="img/48LawsBookPoster.jpg" alt="48LawsBookPoster">
-                    </a>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Weezy Reviews</a></div>
+
+            <ul class="links">
+                <li><a href="#">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="#">Books</a></li>
+            </ul>
+
+            <a href="#" class="actn_btn">Sign In</a>
+            <div class="toggle_btn">
+                <i class="fas fa-bars"></i>
             </div>
-            <footer>
-                <div class="container">
-                    <div class="footer-content">
-                        <h3>Contact Us</h3>
-                        <p>Email:example@info.com</p>
-                        <p>Phone: +1 718 325 6721</p>
-                        <p>Address: Somewhere Near You</p>
-                    </div>
-                    <div class="footer-content">
-                        <h3>Quick Links</h3>
-                        <ul class="list">
-                            <li><a href="">Home</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Services</a></li>
-                            <li><a href="">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-content">
-                        <h3>Follow Us</h3>
-                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                    </div>
-                </div>
-                <div class="bottom-bar">
-                    <p>&copy; 2025 Weezy Reviews. All Rights Reserved</p>
-                </div>
-            </footer>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Your Destination for Reviews</h1>
+        <p>Games, Movies, Books — all reviewed in one place.</p>
+    </section>
+
+    <!-- REVIEWS GRID -->
+    <section class="reviews-section">
+        <h2 class="section-title">Featured Reviews</h2>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <img src="img/MafiaGamePoster.jpg" alt="Game Poster">
+                <h3>Game Review</h3>
+                <p>A deep look into the world of gaming.</p>
+            </div>
+
+            <div class="review-card">
+                <img src="img/SinnerMoviePoster.jpg" alt="Movie Poster">
+                <h3>Movie Review</h3>
+                <p>Honest breakdowns of the latest films.</p>
+            </div>
+
+            <div class="review-card">
+                <img src="img/48LawsBookPoster.jpg" alt="Book Poster">
+                <h3>Book Review</h3>
+                <p>Exploring stories, authors, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST ARTICLES SECTION -->
+    <section class="articles">
+        <h2 class="section-title">Latest Articles</h2>
+        <div class="article-boxes">
+
+            <div class="article">
+                <h4>Top 10 Games of 2025</h4>
+                <p>We dig into the best titles releasing this year.</p>
+            </div>
+
+            <div class="article">
+                <h4>Movie Trends Changing Hollywood</h4>
+                <p>A look at how technology is shaping film.</p>
+            </div>
+
+            <div class="article">
+                <h4>Books You Must Read</h4>
+                <p>Our list of essential reads you shouldn't skip.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXTRA CONTENT FILLER SECTION -->
+    <section class="extra-content">
+        <h2 class="section-title">Trending Right Now</h2>
+        <p>
+            Stay updated with what's hot in entertainment. We track everything trending 
+            across games, movies, and books—so you never miss out.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>Your trusted source for reviews, breakdowns, and entertainment insights.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@reviewsite.com</p>
+                <p>Follow us on social media.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
