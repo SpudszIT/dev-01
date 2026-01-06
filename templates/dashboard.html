@@ -1,10 +1,48 @@
 {% extends "base.html" %}
-
-{% block title %}Dashboard | Weezy Reviews{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <h1>Welcome, {{ session['user'] }}!</h1>
-    <p>This is your dashboard. Explore your favorite reviews and account settings.</p>
+<section class="dashboard">
+    <h1>Welcome, {{ username }} 👋</h1>
+
+    <!-- REVIEW SUBMIT -->
+    <div class="dashboard-box">
+        <h2>Submit a Review</h2>
+
+        <form method="POST">
+            <input type="text" name="title" placeholder="Review title" required>
+
+            <select name="category" required>
+                <option value="">Category</option>
+                <option value="game">Game</option>
+                <option value="movie">Movie</option>
+                <option value="book">Book</option>
+            </select>
+
+            <input type="number" step="0.1" min="0" max="10" name="rating" placeholder="Rating (0–10)" required>
+
+            <textarea name="content" placeholder="Write your review..." required></textarea>
+
+            <button class="actn_btn">Post Review</button>
+        </form>
+    </div>
+
+    <!-- USER REVIEWS -->
+    <div class="dashboard-box">
+        <h2>My Reviews</h2>
+
+        <div class="reviews-grid">
+            {% for review in reviews %}
+            <div class="review-card">
+                <h3>{{ review.title }}</h3>
+                <span>{{ review.category | capitalize }} · ⭐ {{ review.rating }}</span>
+                <p>{{ review.content }}</p>
+            </div>
+            {% else %}
+            <p>No reviews yet.</p>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {% endblock %}
+

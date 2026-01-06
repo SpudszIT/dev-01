@@ -1,7 +1,25 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # for sessions
+app.secret_key = "super-secret-key"  # change later
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    bio = db.Column(db.Text)
+with app.app_context():
+    db.create_all()
+
+
 
 # Minimal in-memory user "database"
 users = {}
@@ -9,12 +27,10 @@ users = {}
 
 @app.route("/dashboard")
 def dashboard():
-    # Check if user is logged in
-    if "user" not in session:
+    if "user_id" not in session:
         return redirect(url_for("signin"))
 
-    user_email = session["user"]
-    return render_template("dashboard.html", email=user_email)
+    return render_template("dashboard.html")
 
 @app.route("/")
 def home():
@@ -23,45 +39,55 @@ def home():
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
-    error = None
     if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
+        email = request.form["email"]
+        password = request.form["password"]
 
-        if email not in users or users[email] != password:
-            error = "Invalid email or password."
-        else:
-            session["user"] = email
-            return redirect(url_for("home"))
+        user = User.query.filter_by(email=email).first()
 
-    return render_template("sign-in.html", error=error, email=request.form.get("email"))
+        if user and check_password_hash(user.password, password):
+            session["user_id"] = user.id
+            session["username"] = user.username
+            return redirect(url_for("dashboard"))
+
+        flash("Invalid credentials")
+        return redirect(url_for("signin"))
+
+    return render_template("sign-in.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    error = None
     if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
-        confirm = request.form.get("confirm")
+        username = request.form["username"]
+        email = request.form["email"]
+        password = request.form["password"]
 
-        # Simple validation
-        if not email or not password or not confirm:
-            error = "All fields are required."
-        elif password != confirm:
-            error = "Passwords do not match."
-        elif email in users:
-            error = "Email already registered."
-        else:
-            users[email] = password  # save user
-            session["user"] = email  # log them in
-            return redirect(url_for("home"))
+        hashed_pw = generate_password_hash(password)
 
-    return render_template("register.html", error=error, email=request.form.get("email"))
+        if User.query.filter_by(email=email).first():
+            flash("Email already registered")
+            return redirect(url_for("register"))
+
+        new_user = User(
+            username=username,
+            email=email,
+            password=hashed_pw
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        session["user_id"] = new_user.id
+        session["username"] = new_user.username
+
+        return redirect(url_for("dashboard"))
+
+    return render_template("register.html")
 
 @app.route("/logout")
 def logout():
-    session.pop("user", None)
-    return redirect(url_for("home"))
+    session.clear()
+    return redirect(url_for("index"))
 
 @app.route("/games")
 def games():

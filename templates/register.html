@@ -6,17 +6,70 @@
 <section class="signin-section">
     <div class="signin-box">
         <h2>Create Account</h2>
+
         <form method="POST" action="{{ url_for('register') }}">
+
+            <!-- USERNAME -->
+            <label>Username</label>
+            <input
+                type="text"
+                name="username"
+                placeholder="Choose a username"
+                required
+            >
+
+            <!-- EMAIL -->
             <label>Email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <!-- PASSWORD -->
             <label>Password</label>
-            <input type="password" name="password" placeholder="Create a password" required>
+            <input
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <!-- CONFIRM -->
             <label>Confirm Password</label>
-            <input type="password" name="confirm" placeholder="Confirm password" required>
-            <button type="submit" class="actn_btn">Register</button>
+            <input
+                type="password"
+                name="confirm"
+                placeholder="Confirm password"
+                required
+            >
+
+            <!-- BIO -->
+            <label>Bio (optional)</label>
+            <textarea
+                name="bio"
+                placeholder="Tell us what you like reviewing..."
+                rows="3"
+            ></textarea>
+
+            <!-- TERMS -->
+            <div style="margin-top: 10px;">
+                <input type="checkbox" required>
+                <span style="font-size: 0.9rem;">
+                    I agree to the Terms & Conditions
+                </span>
+            </div>
+
+            <button type="submit" class="actn_btn" style="margin-top: 15px;">
+                Register
+            </button>
+
         </form>
+
         <p class="signin-note">
-            Already have an account? <a href="{{ url_for('signin') }}">Sign In</a>
+            Already have an account?
+            <a href="{{ url_for('signin') }}">Sign In</a>
         </p>
     </div>
 </section>
