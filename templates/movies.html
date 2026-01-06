@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Movie Reviews | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Movie Reviews</h1>
+    <p>Honest takes on blockbusters, classics, and hidden gems.</p>
+</section>
+
+<section class="reviews-section">
+    <h2 class="section-title">Featured Movies</h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/SinnerMoviePoster.jpg') }}" alt="Movie Poster">
+            <h3>Sinners</h3>
+            <p>A gripping crime drama with powerful performances.</p>
+            <span class="rating">⭐ 8.2 / 10</span>
+        </div>
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/blackphone2.jpg') }}" alt="Movie Poster">
+            <h3>Black Phone</h3>
+            <p>A visually stunning sci-fi thriller.</p>
+            <span class="rating">⭐ 8.8 / 10</span>
+        </div>
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/weapons.jpg') }}" alt="Movie Poster">
+            <h3>Weapons</h3>
+            <p>A tense action film that never slows down.</p>
+            <span class="rating">⭐ 7.9 / 10</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

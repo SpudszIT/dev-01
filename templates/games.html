@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Game Reviews | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Game Reviews</h1>
+    <p>Honest reviews, ratings, and breakdowns of the latest games.</p>
+</section>
+
+<section class="reviews-section">
+    <h2 class="section-title">Featured Games</h2>
+    <div class="reviews-grid">
+        <div class="review-card">
+                <img src="{{ url_for('static', filename='img/MafiaGamePoster.jpg') }}" alt="Game Poster">
+                <h3>Mafia: Definitive Edition</h3>
+                <p>A cinematic crime story with modern visuals and classic gameplay.</p>
+                <span class="rating">⭐ 8.5 / 10</span>
+            </div>
+
+            <div class="review-card">
+                <img src="{{ url_for('static', filename='img/arcraiders.jpg') }}" alt="Game Poster">
+                <h3>Arc Raiders</h3>
+                <p>An open-world sci-fi RPG with deep customization and storytelling.</p>
+                <span class="rating">⭐ 9.0 / 10</span>
+            </div>
+
+            <div class="review-card">
+                <img src="{{ url_for('static', filename='img/reddead2.jpg') }}" alt="Game Poster">
+                <h3>Red Dead Redemption 2</h3>
+                <p>Fast-paced multiplayer combat with competitive ranking.</p>
+                <span class="rating">⭐ 7.8 / 10</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Sign In | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="signin-section">
+    <div class="signin-box">
+        <h2>Sign In</h2>
+        <form method="POST" action="{{ url_for('signin') }}">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit" class="actn_btn">Login</button>
+        </form>
+        <p class="signin-note">
+            Don’t have an account? <a href="{{ url_for('register') }}">Register</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

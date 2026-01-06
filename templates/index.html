@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Your Destination for Reviews</h1>
+    <p>Games, Movies, Books — all reviewed in one place.</p>
+</section>
+
+<section class="reviews-section">
+    <h2 class="section-title">Featured Reviews</h2>
+
+    <div class="reviews-grid">
+
+        <!-- GAME -->
+        <a href="{{ url_for('games') }}" class="card-link">
+            <div class="review-card">
+                <img src="{{ url_for('static', filename='img/MafiaGamePoster.jpg') }}" alt="Red Dead Redemption 2">
+                <h3>Red Dead Redemption 2</h3>
+                <p>A cinematic open-world masterpiece.</p>
+                <span class="rating">⭐ 9.7 / 10</span>
+            </div>
+        </a>
+
+        <!-- MOVIE -->
+        <a href="{{ url_for('movies') }}" class="card-link">
+            <div class="review-card">
+                <img src="{{ url_for('static', filename='img/weapons.jpg') }}" alt="Weapons">
+                <h3>Weapons</h3>
+                <p>A tense psychological thriller.</p>
+                <span class="rating">⭐ 8.9 / 10</span>
+            </div>
+        </a>
+
+        <!-- BOOK -->
+        <a href="{{ url_for('books') }}" class="card-link">
+            <div class="review-card">
+                <img src="{{ url_for('static', filename='img/48LawsBookPoster.jpg') }}" alt="48 Laws of Power">
+                <h3>The 48 Laws of Power</h3>
+                <p>A controversial guide to influence.</p>
+                <span class="rating">⭐ 8.6 / 10</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<section class="extra-content">
+    <h2 class="section-title">Trending Right Now</h2>
+    <p>Stay updated with what's hot in entertainment—games, movies, and books.</p>
+</section>
+{% endblock %}

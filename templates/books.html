@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Book Reviews | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Book Reviews</h1>
+    <p>Thoughtful reviews of fiction, non-fiction, and classics.</p>
+</section>
+
+<section class="reviews-section">
+    <h2 class="section-title">Featured Books</h2>
+
+    <div class="reviews-grid">
+
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/48LawsBookPoster.jpg') }}" alt="Book Cover">
+            <h3>The 48 Laws of Power</h3>
+            <p>A controversial yet fascinating guide to influence.</p>
+            <span class="rating">⭐ 8.6 / 10</span>
+        </div>
+
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/twelfth-night.jpg') }}" alt="Book Cover">
+            <h3>Twelfth Night by William Shakespeare</h3>
+            <p>A classic Shakespearean comedy of love and identity.</p>
+            <span class="rating">⭐ 9.1 / 10</span>
+        </div>
+
+        <div class="review-card">
+            <img src="{{ url_for('static', filename='img/nativeson.jpg') }}" alt="Book Cover">
+            <h3>Native Son</h3>
+            <p>A powerful novel exploring race and identity in America.</p>
+            <span class="rating">⭐ 8.0 / 10</span>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

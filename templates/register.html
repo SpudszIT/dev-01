@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Register | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="signin-section">
+    <div class="signin-box">
+        <h2>Create Account</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Create a password" required>
+            <label>Confirm Password</label>
+            <input type="password" name="confirm" placeholder="Confirm password" required>
+            <button type="submit" class="actn_btn">Register</button>
+        </form>
+        <p class="signin-note">
+            Already have an account? <a href="{{ url_for('signin') }}">Sign In</a>
+        </p>
+    </div>
+</section>
+{% endblock %}

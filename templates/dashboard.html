@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Weezy Reviews{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Welcome, {{ session['user'] }}!</h1>
+    <p>This is your dashboard. Explore your favorite reviews and account settings.</p>
+</section>
+{% endblock %}
