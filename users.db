@@ -1,0 +1,23 @@
+import sqlite3
+import hashlib
+
+conn = sqlite3.connect("users.db")
+cur = conn.cursor()
+
+cur.execute("""
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    password TEXT
+)
+""")
+
+hashed = hashlib.sha256("password123".encode()).hexdigest()
+
+cur.execute(
+    "INSERT INTO users (email, password) VALUES (?, ?)",
+    ("test@weezy.com", hashed)
+)
+
+conn.commit()
+conn.close()
