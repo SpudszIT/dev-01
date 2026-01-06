@@ -1,23 +1,20 @@
 # dev-01
 Website Review Page  
-Work On Authentication For Site {
-    Next steps (your choice)
+1. User Dashboard (Priority #1)
 
-🔹 Add Flask backend (Python)
+Create a page only logged-in users can see.
 
-🔹 Add fake login validation
+Features to add:
 
-🔹 Add registration page
+Welcome message (Hello, {{ user.username }})
 
-🔹 Connect to SQLite
-}
+User bio (editable later)
 
-content management system (CMS) {
-    Write papers/articles (long reviews)
+Button: “Submit New Review / Paper”
 
-Store them in a database
+Button: “My Submissions”
 
-Display summaries on your homepage
-
-Click a review card → open the full paper
-}
+2. Add Paper model
+3️⃣ Add submit page
+4️⃣ Make books/movies/games dynamic
+5️⃣ Add single paper page (/paper/<id>)
