@@ -18,3 +18,5 @@ Button: “My Submissions”
 3️⃣ Add submit page
 4️⃣ Make books/movies/games dynamic
 5️⃣ Add single paper page (/paper/<id>)
+
+3 . Remove Login & Registration Page | Add Like Button & Comments ! 
